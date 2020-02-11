@@ -1,0 +1,13 @@
+*.pt.best
+*.pt
+*.pt.latest
+store.h5
+*tensorboard*
+*.gz
+*.tar.gz
+/tmp/*
+*ubyte
+*.pyc
+*.table_objects*
+*.pkl
+*.ipynb_checkpoints
