@@ -1,4 +1,5 @@
 # Path to dataset 
+# Code Taken from Madry Lab's Robustness Library - https://github.com/MadryLab/robustness
 DATA_PATH_DICT = {
     'FashionMNIST': '/tmp/',
     'MNIST': '/tmp/',

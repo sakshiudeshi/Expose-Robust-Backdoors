@@ -1,3 +1,8 @@
+"""
+
+Code Taken from Madry Lab's Robustness Library - https://github.com/MadryLab/robustness
+"""
+
 CLASS_DICT = {
           'FashionMNIST': {0: "T-shirt/top", 1: "Trouser", 2: "Pullover", 3: "Dress", 4: "Coat", 5: "Sandal", 6: "Shirt", 7: "Sneaker", 8: "Bag", 9: "Ankle boot"},
           'MNIST': {0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9"},

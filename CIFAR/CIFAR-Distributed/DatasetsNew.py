@@ -13,6 +13,8 @@ Currently supported datasets:
 
 :doc:`../example_usage/training_lib_part_2` shows how to add custom
 datasets to the library.
+
+Code Taken from Madry Lab's Robustness Library - https://github.com/MadryLab/robustness
 """
 
 import os
