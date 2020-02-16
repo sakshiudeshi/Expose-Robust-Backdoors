@@ -44,4 +44,9 @@ for all labels in the dataset.
 * TSNE-Feature-Rep-Analysis: This file performs t-SNE on the feature representations to reveal the clusters in the
 translated images, if any
 * Mean Shift Images - All: This file tries to predict the actual number of clusers. Clusters more than three are considered
-suspicious. We can then check images in the  to find if the trigger exists in the translated images. 
+suspicious. We can then check images in the  to find if the trigger exists in the translated images.
+
+Additionally, we also have the following folders: 
+* models: This folder contains the models under test
+* saved_pickles: This folder contains pickled files for the translated images, feature representations for clean and translated
+images and the output of t-SNE on these feature representations.  
