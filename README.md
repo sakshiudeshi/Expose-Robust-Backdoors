@@ -26,7 +26,7 @@ Our investigation reveals that salient features of adversarially robust DNNs bre
 * cox
 
 In case of any unforseen dependencies, a detailed ```pip freeze``` of the system used to develop this code can be found 
-[here](https://docs.google.com/document/d/1Cbcfiv3Y7Fz3jKcwv-h2EWLBY37orPuwbflp_C8P2ok/edit?usp=sharing) 
+[here](https://figshare.com/s/a80e6a55ea652fdab500) 
 
 ### Repository Organisation
 In our evaluation, we examine three types of robust models corresponding to three datasets, namely CIFAR-10, Fashion-MNIST and 
