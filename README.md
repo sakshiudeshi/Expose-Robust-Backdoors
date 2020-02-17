@@ -55,7 +55,7 @@ images and the output of t-SNE on these feature representations.
 All the robust ML models can be found [here](https://figshare.com/s/e526b8efac7dfd7aa28c). These are 
 divided into three folders representing three datasets, namely CIFAR10, Fashion-MNIST and MNIST. Each folder has a Clean, 
 Distributed Backdoor and Localised Backdoor. The MD5 sum for these files can be found 
-[here](https://docs.google.com/document/d/1y5-xWEh4WyDFYlNzI5naB2tUFnjHOXMwqYmV5hz3Ux4/edit?usp=sharing)
+[here](https://figshare.com/s/81fc43c3d56d6dd4288c)
 
 
 
