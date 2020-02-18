@@ -22,7 +22,7 @@ import os
 import torch as ch
 import torch.utils.data
 from robustness import imagenet_models, cifar_models
-from torchvision import transforms, datasets
+from torchvision import transforms, datasets, transforms
 import torchvision
 
 from robustness.tools import constants
@@ -356,12 +356,18 @@ class MNIST(DataSet):
     def __init__(self, data_path, **kwargs):
         ds_kwargs = {
             'num_classes': 10,
-            'mean': ch.tensor([0.4914, 0.4822, 0.4465]),
-            'std': ch.tensor([0.2023, 0.1994, 0.2010]),
+            'mean': ch.tensor([0.1307, 0.1307, 0.1307]),
+            'std': ch.tensor([0.3081, 0.3081, 0.3081]), 
             'custom_class': torchvision.datasets.MNIST,
             'label_mapping': None,
-            'transform_train': da.TRAIN_TRANSFORMS_DEFAULT(32),
-            'transform_test': da.TEST_TRANSFORMS_DEFAULT(32)
+            'transform_train': transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.1307,), (0.3081,))]),
+            'transform_test': transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.1307,), (0.3081,))])
+#             'mean': ch.tensor([0.1306407, 0.1306407, 0.1306407]),
+#             'std': ch.tensor([0.3080536, 0.3080536, 0.3080536]), 
+#             'transform_train': transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.1306407,), (0.3080536,))]),
+#             'transform_test': transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.1306407,), (0.3080536,))])
+#             'transform_train': da.TRAIN_TRANSFORMS_DEFAULT(28),
+#             'transform_test': da.TEST_TRANSFORMS_DEFAULT(28)
         }
         super(MNIST, self).__init__('mnist', data_path, **ds_kwargs)
 
@@ -370,14 +376,58 @@ class MNIST(DataSet):
         """
         return cifar_models.__dict__[arch](num_classes=self.num_classes)
 
+    
+class FashionMNIST(DataSet):
+    def __init__(self, data_path, **kwargs):
+        ds_kwargs = {
+            'num_classes': 10,
+            'mean': ch.tensor([0.28609198, 0.28609198, 0.28609198]),
+            'std': ch.tensor([0.3530325, 0.3530325, 0.3530325]),           
+            'custom_class': torchvision.datasets.FashionMNIST,
+            'label_mapping': None,
+            'transform_train': transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.28609198,), (0.3530325,))]),
+            'transform_test': transforms.Compose([transforms.ToTensor(),transforms.Normalize((0.28609198,), (0.3530325,))])
+#             'transform_train': da.TRAIN_TRANSFORMS_DEFAULT(28),
+#             'transform_test': da.TEST_TRANSFORMS_DEFAULT(28)
+        }
+        super(FashionMNIST, self).__init__('fashionmnist', data_path, **ds_kwargs)
 
+    def get_model(self, arch, pretrained=False):
+        """
+        """
+        return cifar_models.__dict__[arch](num_classes=self.num_classes)
+
+
+class SVHN(DataSet):
+    def __init__(self, data_path, **kwargs):
+        ds_kwargs = {
+            'num_classes': 10,
+            'mean': ch.tensor([0.5, 0.5, 0.5]),
+            'std': ch.tensor([0.5, 0.5, 0.5]),
+            'custom_class': torchvision.datasets.SVHN,
+            'label_mapping': None,
+            'transform_train': da.TRAIN_TRANSFORMS_DEFAULT(32),
+            'transform_test': da.TEST_TRANSFORMS_DEFAULT(32)
+        }
+        super(SVHN, self).__init__('svhn', data_path, **ds_kwargs)
+
+    def get_model(self, arch, pretrained=False):
+        """
+        """
+        return cifar_models.__dict__[arch](num_classes=self.num_classes)
+
+
+    
+    
 DATASETS = {
     'imagenet': ImageNet,
     'restricted_imagenet': RestrictedImageNet,
     'cifar': CIFAR,
     'cinic': CINIC,
     'a2b': A2B,
-    'mnist': MNIST
+    'mnist': MNIST,
+    'fashionmnist': FashionMNIST,
+    'svhn': SVHN
 }
 '''
 Dictionary of datasets. A dataset class can be accessed as:
