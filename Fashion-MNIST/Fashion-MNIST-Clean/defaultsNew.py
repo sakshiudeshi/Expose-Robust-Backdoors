@@ -2,9 +2,6 @@
 This module is used to set up arguments and defaults. For information on how to
 use it, see Step 2 of the :doc:`../example_usage/training_lib_part_1`
 walkthrough.
-
-# Code Taken from Madry Lab's Robustness Library - https://github.com/MadryLab/robustness
-
 """
 
 from robustness import attacker, datasets
